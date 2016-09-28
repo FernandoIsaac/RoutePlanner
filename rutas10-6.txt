@@ -1,0 +1,12 @@
+Ruta 1 Distancia: 
+160.34481044915034
+Ruta 2 Distancia: 
+185.327050169983
+Ruta 3 Distancia: 
+181.8711287069118
+Ruta 4 Distancia: 
+175.07491384551778
+Ruta 5 Distancia: 
+93.33809511662427
+Ruta 6 Distancia: 
+104.4030650891055

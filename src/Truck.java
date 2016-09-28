@@ -11,9 +11,11 @@
 public class Truck {
     int ID;
     int n;
+    int cont = 0;
     Shop[] shops = new Shop[n];
     double DistanciaRecorrida;
     double DistanciaARecorrer;
+    boolean lleno;
 
     public double getDistanciaARecorrer() {
         return DistanciaARecorrer;
@@ -31,6 +33,7 @@ public class Truck {
         this.DistanciaRecorrida = 0;
         this.n = 0;
         this.DistanciaARecorrer = 0;
+        this.lleno = false;
     }
     
     
@@ -47,16 +50,30 @@ public class Truck {
         return n;
     }
 
-    public void setN(int n) {
-        this.n = n;
+    public void setN() {
+        this.n = n+1;
+        this.shops= new Shop[this.n];
     }
 
     public Shop[] getShops() {
         return shops;
     }
 
-    public void setShops(Shop[] shops) {
-        this.shops = shops;
+    public boolean isLleno() {
+        return lleno;
+    }
+
+    public int getCont() {
+        return cont;
+    }
+    
+    public void setShops(Shop shop) {
+        this.shops[cont] = shop;
+        cont++;
+        if(cont==n){
+            this.lleno=true;
+            setDistanciaRecorrida(this.shops[cont-1].getDistanceFromDepot());
+        }
     }
 
     public double getDistanciaRecorrida() {

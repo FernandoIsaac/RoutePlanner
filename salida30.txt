@@ -1,0 +1,37 @@
+Camion 1 Ciudades: 
+8
+4
+2
+6
+7
+Camion 2 Ciudades: 
+11
+5
+9
+13
+12
+Camion 3 Ciudades: 
+1
+15
+16
+18
+Camion 4 Ciudades: 
+10
+14
+19
+21
+Camion 5 Ciudades: 
+3
+20
+23
+24
+Camion 6 Ciudades: 
+26
+22
+25
+28
+Camion 7 Ciudades: 
+17
+27
+30
+29

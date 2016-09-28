@@ -1,0 +1,14 @@
+Camion 1 Ciudades: 
+8
+4
+2
+Camion 2 Ciudades: 
+1
+6
+7
+Camion 3 Ciudades: 
+10
+9
+Camion 4 Ciudades: 
+3
+5

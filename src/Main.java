@@ -9,6 +9,7 @@ import java.util.ArrayList;
 //import edu.uci.ics.jung.visualization.BasicVisualizationServer;
 //import edu.uci.ics.jung.visualization.decorators.ToStringLabeller;
 import java.awt.Dimension;
+import java.io.FileWriter;
 import javax.swing.JFrame;
 
 /*
@@ -141,6 +142,18 @@ public static double rutaTotal = 0;
             trucks.add(truck);
             
         }
+       int cont = 0;
+        for (int i = 0; i < (contLineas-2); i++) {
+            trucks.get(cont).setN();
+            cont++;
+            if(cont==numTrucks)
+                cont=0;
+            
+        }
+        
+        //for (int i = 0; i < trucks.size(); i++) {
+        //    System.out.println(trucks.get(i).getN());
+       //}
         System.out.println(rutaTotal/numTrucks);
         //                System.out.println(numTrucks);
        /*                 System.out.println(depot.getX());
@@ -172,22 +185,68 @@ public static double rutaTotal = 0;
         frame.setVisible(true);
 */
         //Mapa.getContentPane().add(visualization);
-        
+       // for (int i = 0; i < shops.size(); i++) {
+         //   System.out.println("TIENDAS"+shops.get(i).getID());
+        //}
                         Matriz matriz = new Matriz(contLineas+numTrucks-2,contLineas+numTrucks-2 );
                         matriz.GenerarMatriz(shops);
               //          matriz.printMatriz();
                 //        System.out.println(" ");
                         matriz.PonerDistancias(shops);
-                        matriz.printMatriz();
+                        //matriz.printMatriz();
                         System.out.println("");
-                        matriz.RestarFilas();
-                        matriz.printMatriz();
-                        matriz.RestarColumnas();
+                        //matriz.RestarFilas();
+                        //matriz.printMatriz();
+                        //matriz.RestarColumnas();
                         System.out.println("");
-                        matriz.printMatriz();
-                        System.out.println(matriz.SumarArreglos());
-                        matriz.ConseguirCeros(numTrucks);
-                        matriz.printMatriz();
+                       // matriz.printMatriz();
+                        //System.out.println(matriz.SumarArreglos());
+                        //matriz.ConseguirCeros(numTrucks);
+                        System.out.println("");
+                        matriz.Inicio(shops);
+                        matriz.AsignarCiudades(shops, trucks);
+                        //matriz.Inicio(contLineas-2+1);
+                        for (int i = 0; i < shops.size(); i++) {
+                            System.out.println(shops.get(i).isFlag());
+        }
+                        for (int i = 0; i < trucks.size(); i++) {
+                            System.out.println(trucks.get(i).getDistanciaRecorrida());
+        }
+                        try {
+			File file = new File("/home/isaac/NetBeansProjects/RoutePlanner/salida2.txt");
+			FileWriter fileWriter = new FileWriter(file);
+			//fileWriter.write("This is\n ");
+			//fileWriter.write("a test");
+                            for (int i = 0; i < trucks.size(); i++) {
+                                fileWriter.write("Camion "+trucks.get(i).getID()+" Ciudades: "+"\n");
+                                for (int j = 0; j < trucks.get(i).getShops().length; j++) {
+                                    fileWriter.write(trucks.get(i).getShops()[j].getID()+"\n");
+                                }
+                            }
+                        
+			fileWriter.flush();
+			fileWriter.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+                        
+                         try {
+			File file = new File("/home/isaac/NetBeansProjects/RoutePlanner/rutas2.txt");
+			FileWriter fileWriter = new FileWriter(file);
+			//fileWriter.write("This is\n ");
+			//fileWriter.write("a test");
+                            for (int i = 0; i < trucks.size(); i++) {
+                                fileWriter.write("Ruta "+trucks.get(i).getID()+" Distancia: "+"\n");
+                                fileWriter.write(trucks.get(i).getDistanciaRecorrida()+"\n");
+                                
+                            }
+                        
+			fileWriter.flush();
+			fileWriter.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+                        
     }
     
 }
